@@ -92,7 +92,6 @@ function changeImageByLang(lang_index){
     case 0:
           document.getElementById('slideshowImage1').src = "images/slider_example_1.jpg" ;
           document.getElementById('slideshowImage2').src = "images/slider_example_2.jpg" ;
-          document.getElementById('download_tl_img').src = "images/download_title.jpg" ;
           document.getElementById('lang_pic_cause').src = "images/come_img01.jpg" ;
           document.getElementById('lang_comeright').src = "images/PM_info.png" ;
           document.getElementById('lang_blue_img').src = "images/bluetooth_bg.jpg" ;
@@ -103,7 +102,6 @@ function changeImageByLang(lang_index){
     case 1:
         document.getElementById('slideshowImage1').src = "images/slider_example_1_eng.jpg" ;
         document.getElementById('slideshowImage2').src = "images/slider_example_2_eng.jpg" ;
-        document.getElementById('download_tl_img').src = "images/download_title_eng.jpg" ;
         document.getElementById('lang_pic_cause').src = "images/come_img01_eng.jpg" ;
         document.getElementById('lang_comeright').src = "images/PM_info_eng.png" ;
         document.getElementById('lang_blue_img').src = "images/bluetooth_bg_eng.jpg" ;
@@ -151,6 +149,7 @@ function changeAllNavBarUIWording(arr,lang_index){
   document.getElementById('lang_navfaq').innerHTML = arr[lang_index].lang_navfaq;
   document.getElementById('lang_navch').innerHTML = arr[lang_index].lang_navch;
   document.getElementById('lang_naven').innerHTML = arr[lang_index].lang_naven;
+  document.getElementById('lang_navjp').innerHTML = arr[lang_index].lang_navjp;
 
   document.getElementById('lang_comeright_cont').innerHTML = arr[lang_index].lang_comeright_cont;
   document.getElementById('lang_cause_cont01').innerHTML = arr[lang_index].lang_cause_cont01;
