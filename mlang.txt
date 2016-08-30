@@ -80,7 +80,7 @@
       "lang_win_text01": "下載App使用手冊電子檔PDF",
 
       "lang_download_text03": "Download",
-      "lang_spec_title": "PM2.5 Detector",
+      "lang_spec_title": "Product Spec",
       "lang_spec_title01": "Sensor",
       "lang_spec_text01": "PM2.5 Sensor",
       "lang_spec_title02": "Bluetooth",
