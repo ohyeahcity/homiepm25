@@ -32,7 +32,7 @@
       "lang_win_text01": "下載App使用手冊電子檔PDF",
 
       "lang_download_text03": "下載",
-      "lang_spec_title": "懸浮粒子感測器",
+      "lang_spec_title": "產品規格",
       "lang_spec_title01": "感測器",
       "lang_spec_text01": "PM2.5感測器",
       "lang_spec_title02": "藍芽技術",
@@ -51,7 +51,7 @@
       "lang_navproduct": "Product",
       "lang_navscenario": "Scenario",
       "lang_navspec": "Product Spec",
-      "lang_navload": "Download",      
+      "lang_navload": "Download",
       "lang_navch": "TW - Traditional Chinese",
       "lang_naven": "EN - English",
       "lang_navjp": "JP - 日本語",
