@@ -12,13 +12,20 @@
 
 
 //=====程式開始======
-
-
-
-
-
-
 function chg_lang(lang_index){
+
+        forceChangeLangSetCookie();
+        auto_chg_lang(lang_index);
+}
+
+
+
+// 切換語系
+function auto_chg_lang(lang_index){
+
+      //寫入Cookie
+      setCookie('lang_code',lang_index,'365');
+      var xck= getCookie('lang_code');
 
 
 			//更改標題文字
@@ -51,6 +58,15 @@ function chg_lang(lang_index){
 
 
 		}
+
+    // 設定cookie 並將 forceChangeLang_index 值填上1,cookie一小時後失效
+    function   forceChangeLangSetCookie(){
+      //寫入Cookie
+      setCookie('forceChangeLang_index',1,'0.1');
+      var xcka= getCookie('forceChangeLang_index');
+
+    }
+
 
 //主要功能1 : Multi-lang Title 根據 on_click 事件切換網頁標題
 function changeWebTitle(lang_index){
@@ -146,7 +162,7 @@ function changeAllNavBarUIWording(arr,lang_index){
   document.getElementById('lang_navscenario').innerHTML = arr[lang_index].lang_navscenario;
   document.getElementById('lang_navspec').innerHTML = arr[lang_index].lang_navspec;
   document.getElementById('lang_navload').innerHTML = arr[lang_index].lang_navload;
-  
+
   document.getElementById('lang_navch').innerHTML = arr[lang_index].lang_navch;
   document.getElementById('lang_naven').innerHTML = arr[lang_index].lang_naven;
 
@@ -201,30 +217,69 @@ function changeAllNavBarUIWording(arr,lang_index){
 
 function detectUserLang(){
 
+    var IsforceChangeLang_index= getCookie('forceChangeLang_index');
     var tempLang = window.navigator.userLanguage || window.navigator.language ;
     var currentBrowserLang = tempLang.toLowerCase();
-    console.log(currentBrowserLang);
 
+  if (IsforceChangeLang_index!=1){
     switch (currentBrowserLang) {
       case "zh-tw":
-            chg_lang(0);
+            auto_chg_lang(0);
+            autolang_index=0;
         break;
       case "zh-cn":
-            chg_lang(0);
+            auto_chg_lang(0);
+            autolang_index=0;
         break;
       case "zh-hk":
-            chg_lang(0);
+            auto_chg_lang(0);
+            autolang_index=0;
         break;
       case "ja":
-            chg_lang(2);
+            auto_chg_lang(1);
+            autolang_index=1;
         break;
 
       default:
-            chg_lang(1);
+            auto_chg_lang(1);
+            autolang_index=1;
         break;
     }
+
+    setCookie('lang_code',autolang_index,'365');
+
+  } else {
+    var Previous_Lang_index= getCookie('lang_code');
+    auto_chg_lang(Previous_Lang_index);
+  }
 }
 
+
+//設定cookie的function
+function setCookie(cookieName, cookieValue, exdays) {
+  if (document.cookie.indexOf(cookieName) >= 0) {
+    var expD = new Date();
+    expD.setTime(expD.getTime() + (-1*24*60*60*1000));
+    var uexpires = "expires="+expD.toUTCString();
+    document.cookie = cookieName + "=" + cookieValue + "; " + uexpires+"; "+ 'path=/';
+  }
+  var d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  var expires = "expires="+d.toUTCString();
+  document.cookie = cookieName + "=" + cookieValue + "; " + expires+"; "+ 'path=/';
+}
+
+// 讀取cookie
+function getCookie(cookieName) {
+  var name = cookieName + "=";
+  var ca = document.cookie.split(';');
+  for(var i=0; i<ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0)==' ') c = c.substring(1);
+      if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+  }
+  return "";
+}
 
 
 
