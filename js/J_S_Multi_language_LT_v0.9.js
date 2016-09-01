@@ -150,7 +150,7 @@ function changeAllNavBarUIWording(arr,lang_index){
 
   document.getElementById('lang_navch').innerHTML = arr[lang_index].lang_navch;
   document.getElementById('lang_naven').innerHTML = arr[lang_index].lang_naven;
-
+  document.getElementById('lang_navshop').innerHTML = arr[lang_index].lang_navshop;
 
   document.getElementById('lang_comeright_cont').innerHTML = arr[lang_index].lang_comeright_cont;
   document.getElementById('lang_cause_cont01').innerHTML = arr[lang_index].lang_cause_cont01;
